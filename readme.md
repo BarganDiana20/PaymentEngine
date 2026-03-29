@@ -8,7 +8,7 @@ Implementation of a payment engine with Java Spring Boot framework, REST API and
 - 🔄💸📜 Payment operations: initiate and process payments, view payment status, with detailed transaction history.
 ---
 #### Project architecture: 
-- 📱 **Client side**
+- 📱 **Client side**  
 Mobile-style web interface built with HTML, CSS, and JavaScript that allows users to authenticate, manage wallets, initiate payments, and monitor balances and transaction history. 
     - **User interface:**
         - 🏠 Home
@@ -22,7 +22,7 @@ Mobile-style web interface built with HTML, CSS, and JavaScript that allows user
         - 🔐 Authentication: admin login;
         - 📊 Dashboard: view user transactions by username and wallet transactions by wallet code;
         - 🚪<i class="fa-solid fa-arrow-right-from-bracket"></i> Logout: securely ends the session and redirects to the login page
-- 🖥️ **Server side**
+- 🖥️ **Server side**  
 Spring Boot backend exposing REST APIs and connecting to MySQL. 
     - 🔀 **Controller Layer**: exposes API endpoints, handles incoming HTTP requests, validates data, delegates business logic to the service layer, and returns responses to the client;
     - 🧠 **Service Layer**: implements business logic and application rules.
