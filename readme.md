@@ -23,7 +23,7 @@ Mobile-style web interface built with HTML, CSS, and JavaScript that allows user
         - 📊 Dashboard: view user transactions by username and wallet transactions by wallet code;
         - 🚪<i class="fa-solid fa-arrow-right-from-bracket"></i> Logout: securely ends the session and redirects to the login page   
 <br>
-- 🖥️ **Server side** 
+- 🖥️ **Server side**
 Spring Boot backend exposing REST APIs and connecting to MySQL. 
     - 🔀 **Controller Layer**: exposes API endpoints, handles incoming HTTP requests, validates data, delegates business logic to the service layer, and returns responses to the client;
     - 🧠 **Service Layer**: implements business logic and application rules.
