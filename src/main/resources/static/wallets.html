@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Wallets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="css/user-style.css">
+</head>
+<body>
+
+<div class="mobile-container">
+    <div class="wallets-content">  
+        
+        <div class="wallets-header">
+            <button id="backBtn" class="back-btn" style="display:none;">← Back</button>
+            <h2 class="wallets-title">My Wallets</h2>
+            <button id="createWalletBtn" class="create-wallet-btn">+ Add Wallet</button>
+        </div>
+
+        <div id="backCreateWrapper" style="display:none;">
+            <button id="backCreateWalletBtn" class="back-btn"> ← Back </button>
+        </div>
+
+        <!-- FORM CREATE WALLET (INITIALLY HIDDEN) -->
+        <div id="create-wallet-form" class="create-wallet-form" style="display:none;">
+            <input type="text" id="walletName"class="input-field" placeholder="Enter the wallet name" >
+            <input type="number" id="walletBalance" class="input-field" placeholder="Enter the initial balance" >
+            <input type="text" id="walletCurrency" class="input-field" placeholder="Enter the currency (EUR, USD, etc.)" >
+            <button id="submitWalletBtn" class="login-btn">Create Wallet</button>
+        </div> 
+
+ 
+        <div id="wallets-list" class="wallets-list"></div>
+            <div id="wallet-details" class="wallets-details" style="display:none;"></div>
+                <div id="transactions-list" class="transactions-list" style="display:none;"></div>
+                    <div class="wallet-actions">
+                        <button id="allTransactionsBtn" class="dashboard-btn" style="display:none;">All Transactions History</button>
+                    </div>
+        </div>
+    
+       <div class="tab-bar">
+            <button class="tab-btn" id="dashboardTab">
+                <i class='fa-solid fa-house' style='font-size:14px'></i>Dashboard</button>
+            <button class="tab-btn" id="paymentTab"> 
+                <i class='fa-solid fa-money-bill-transfer' style='font-size:14px'></i>New Payment</button>
+            <button class="tab-btn active" id="walletsTab">
+                <i class='fa-solid fa-wallet' style='font-size:14px'></i>Wallets</button>
+            <button class="tab-btn" id="logoutBtn"> 
+                <i class='fa-solid fa-right-from-bracket' style='font-size:14px'></i>Logout</button>
+        </div>
+    </div>
+    
+    <div id="popup" class="popup-overlay">
+            <div class="popup-box">
+                <p class="popup-message"></p>
+                <button class="popup-btn">OK</button>
+            </div>
+    </div>
+    
+    <script src="js/popup.js"></script>
+    <script src="js/wallets.js"></script>
+
+</body>
+</html>

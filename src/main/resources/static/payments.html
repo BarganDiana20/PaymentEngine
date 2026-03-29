@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PayEngine Payment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/user-style.css">
+</head>
+<body>
+
+<div class="mobile-container">
+    <div class="payment-content">
+        <h2 class="payment-title">Create a New Payment</h2>
+        <button id="backToDashboard" class="back-btn">← Back</button>
+
+        <div class="create-payment-form">
+            <!-- FROM WALLET -->
+            <label>From Wallet</label>
+            <div class="wallet-select-wrapper">
+                <select id="fromWallet" class="input-field"></select>
+                <span id="walletAvailable" class="wallet-inside-balance"></span>
+            </div>
+
+            <!-- TO WALLET CODE -->
+            <label>To Wallet</label>
+            <input type="number" id="toWalletCode" class="input-field" placeholder="Enter wallet code">
+
+            <!-- AMOUNT -->
+            <label>Amount</label>
+            <div class="amount-wrapper">
+                <input type="number" id="amount" class="input-field" placeholder="0.00"">
+                <span id="currencyLabel" class="currency-inside"></span>
+            </div>
+
+            <!-- DESCRIPTION -->
+            <label>Description</label>
+            <input type="text" id="description" class="input-field" placeholder="Payment description" required autocomplete="off">
+            
+            <!-- SCHEDULE PAYMENT -->
+            <div class="scheduled-wrapper">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="scheduleCheckbox">
+                    <span class="checkmark"></span>
+                    <span class="label-text"  title="Set the payment date">Schedule Payment ?</span>
+                </label>
+
+                <input type="datetime-local" id="scheduledAt" class="input-field" style="display:none;">
+            </div>
+
+            <button id="submitPayment" class="payment-btn">Send Payment</button>
+            <div id="paymentMessage" class="success-message"></div>
+        </div>
+    </div>
+    
+    <div class="tab-bar">
+        <button class="tab-btn" id="dashboardTab">
+            <i class='fa-solid fa-house' style='font-size:14px'></i>Dashboard</button>
+        <button class="tab-btn" id="paymentTab"> 
+            <i class='fa-solid fa-money-bill-transfer' style='font-size:14px'></i>New Payment</button>
+        <button class="tab-btn active" id="walletsTab">
+            <i class='fa-solid fa-wallet' style='font-size:14px'></i>Wallets</button>
+        <button class="tab-btn" id="logoutBtn"> 
+            <i class='fa-solid fa-right-from-bracket' style='font-size:14px'></i>Logout</button>
+    </div>
+</div>
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+            <p class="popup-message"></p>
+            <button class="popup-btn">OK</button>
+        </div>
+    </div>
+    
+    <script src="js/popup.js"></script>
+    <script src="js/payments.js"></script>
+
+</body>
+</html>

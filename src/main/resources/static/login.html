@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PayEngine Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="css/user-style.css">
+</head>
+<body>
+<div class="mobile-container">
+    <div class="login-box">
+        <h1 class="welcome-title">Welcome!</h1>
+        <p class="subtitle">Login to continue</p>
+        <form id="loginForm" >
+            <div class = "input-group icon-input"">
+                <span class="material-symbols-outlined input-icon">account_circle</span>
+                <input id="usernameOrEmail" type="text" class="input-field with-icon" placeholder=" " required autocomplete="off">
+                <label for ="Username or Email" class = "floating-label">Username or Email</label>
+            </div>
+
+            <div class  = "input-group icon-input">
+                <span class="material-symbols-outlined input-icon">lock</span>
+                <input id = "password" type="password" class="input-field with-icon" placeholder=" " required autocomplete="off">
+                <label for = "Password" class="floating-label">Password</label>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <p class="register-text">Don't have an account ? <a href="register.html">Register</a></p>
+    </div>
+</div>
+    
+<div id="popup" class="popup-overlay">
+    <div class="popup-box">
+        <p class="popup-message"></p>
+        <button class="popup-btn">OK</button>
+    </div>
+</div>
+
+<script src="js/popup.js"></script>
+<script src="js/login.js"></script>
+    
+</body>
+</html>

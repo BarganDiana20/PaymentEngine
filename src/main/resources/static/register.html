@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PayEngine - Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="css/user-style.css">
+</head>
+
+<body>
+<div class="mobile-container">
+     <div class="login-box">
+        <h1 class="welcome-title register-title">Create account</h1>
+        <form id="registerForm">
+            <div class = "input-group">
+                <input type="text" id="firstName" class="input-field" placeholder=" " required>
+                <label for = "First Name" class="floating-label">First Name</label>
+            </div>
+
+            <div class = "input-group">
+                <input type="text" id="lastName"class="input-field" placeholder=" " required>
+                <label for = "Last Name" class="floating-label">Last Name</label>
+            </div>
+
+            <div class = "input-group">
+                <input type="text" id="username"class="input-field" placeholder=" " required>
+                <label for = "Username" class="floating-label">Username</label>
+            </div>
+
+            <div class = "input-group">
+                <input type="email" id="email"class="input-field" placeholder=" " required>
+                <label for="Email" class="floating-label">Email</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password"class="input-field" placeholder=" " required>
+                <label for="Password" class="floating-label">Password</label>
+            </div>
+
+            <button type="submit" class="register-btn">Register</button>
+            <p class="register-text">
+                Already have an account? <a href="login.html">Login</a>
+            </p>
+        </form>
+    </div>
+</div>
+    
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+            <p class="popup-message"></p>
+            <button class="popup-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="js/popup.js"></script>
+    <script src="js/register.js"></script>
+
+</body>
+</html>

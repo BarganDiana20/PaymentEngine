@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PayEngine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/user-style.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <div class="onboarding-wrapper">
+            <!-- HEADER FIX -->
+            <div class="onboarding-header">
+                <div class="icon">
+                    <img src="images/person-with-digital-wallet-icon2.png" alt="Wallet Icon">
+                </div>
+                <h2>PayEngine</h2>
+            </div>
+
+            <!-- SLIDE AREA -->
+
+             <div class="card" id="card">
+                <h3 id="slideTitle"></h3>
+                <p id="slideText"></p>
+                <div class="card-buttons">
+                    <button id="skipBtn" class="skip-btn">Sign in</button>
+                    <button id="nextBtn" class="next-btn">Next</button>       
+                </div>
+            </div>
+   
+    <script>
+    const slides = [
+    {
+        title: "Manage Your Wallets",
+        text: "Create and control multiple wallets from one place."
+    },
+    {
+        title: "Send & Receive Money",
+        text: "Transfer funds instantly and effortlessly between wallets."
+    },
+    {
+        title: "Track Your Activity",
+        text: "Monitor transactions and balances in real time."
+    },
+    {
+        title: "Secure & Reliable",
+        text: "Built to keep your payments secure and reliable."
+    }
+    ];
+
+    let currentIndex = 0;
+
+    const titleEl = document.getElementById("slideTitle");
+    const textEl = document.getElementById("slideText");
+    const nextBtn = document.getElementById("nextBtn");
+    const skipBtn = document.getElementById("skipBtn");
+    const cardButtons = document.querySelector(".card-buttons");
+    
+    function updateSlide() {
+        titleEl.textContent = slides[currentIndex].title;
+        textEl.textContent = slides[currentIndex].text;
+
+        if (currentIndex === slides.length - 1) {
+            nextBtn.textContent = "Get Started";
+            skipBtn.style.display = "none";
+            cardButtons.style.justifyContent = "right";
+        } else if (currentIndex > 0 ) {
+            nextBtn.textContent = "Next";
+            skipBtn.style.display = "none";
+            cardButtons.style.justifyContent = "right";
+        } else {
+            nextBtn.textContent = "Next";
+            skipBtn.style.display = "flex";
+            cardButtons.style.justifyContent = "space-between";
+        }
+    }
+
+    nextBtn.addEventListener("click", () => {
+    if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSlide();
+    } else {
+        localStorage.setItem("onboardingSeen", "true");
+        window.location.href = "login.html";
+    }
+    });
+
+    skipBtn.addEventListener("click", () => {
+    localStorage.setItem("onboardingSeen", "true");
+    window.location.href = "login.html";
+    });
+
+    updateSlide();
+    </script>
+</body>
+</html>

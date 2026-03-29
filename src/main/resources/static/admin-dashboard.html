@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - PayEngine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/admin-style.css">
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+<div class="mobile-container" x-data="{ profileModalOpen: false }">
+    <div class="dashboard-header">
+        <div class="user-section hello-wrapper">
+            <span class="material-symbols-outlined" style="color: #ffe600;">dashboard_customize</span>
+            <span class="hello-text" id="greeting-text">Admin Dashboard</span>
+
+            <span class="material-symbols-outlined cursor-pointer"
+                @click="profileModalOpen = true"
+                style="color: #ffe600; font-size: 24px; margin-left: 35px;">
+                account_circle
+            </span>
+        </div>
+    </div>
+
+    <div class="modal-overlay" x-cloak  x-show="profileModalOpen" x-transition.opacity>
+       
+        <div class="modal-container" @click.away="profileModalOpen = false"> 
+            
+            <div class="modal-header">
+                <h3>Profile Admin</h3>
+                <button @click="profileModalOpen = false" class="close-btn">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="field">
+                    <label>Full Name</label>
+                    <p id="profileFullName" class="profile-value"></p>
+                </div>
+
+                <div class="field">
+                    <label>Username</label>
+                    <p id="profileUsername" class="profile-value"></p>
+                </div>
+
+                <div class="field">
+                    <label>Email</label>
+                    <p id="profileEmail" class="profile-value"></p>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="tab-bar">
+        <button class="tab-btn active" data-tab="user">
+           <span class="material-symbols-outlined" style='font-size:15px; color: black'>person_search</span>
+           User Transactions</button>
+        <button class="tab-btn" data-tab="wallet">
+           <i class='fa-solid fa-money-bill-transfer' style='font-size:14px'></i>Wallet Transactions</button>
+        <button class="tab-btn" id="logoutBtn">
+           <i class='fa-solid fa-right-from-bracket' style='font-size:14px'></i>Logout</button>
+    </div>
+    
+    <div id="filters" class="filters">
+        <div class="input-group" id="userGroup">
+            <input type="text" id="userNameInput" class="filter-input" placeholder=" " required autocomplete="off">
+            <label for="userNameInput">Enter username</label>
+        </div>
+        <div class="input-group" id="walletGroup" style="display:none;">
+            <input type="number" id="walletCodeInput" class="filter-input" placeholder=" " required autocomplete="off" >
+            <label for="walletCodeInput">Enter wallet code</label>
+        </div>
+        <button id="fetchBtn" class="primary-btn">View Transactions</button>
+    </div>
+
+    <div id="resultsBar" class="results-bar" style="display:none;">
+            <span class="results-label"></span>
+            <span id="resultsBadge" class="results-badge"></span>
+    </div>
+
+    <!-- Transactions list -->
+    <div id="transactionsContainer" class="transactions-container">
+         <!-- Transaction cards injected here -->
+    </div>
+</div>
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+            <p class="popup-message"></p>
+            <button class="popup-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="js/popup.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const storedUser = sessionStorage.getItem("user");
+        if (!storedUser) {
+            window.location.href = "/login.html";
+            return;
+        }
+
+        const user = JSON.parse(storedUser);
+
+        document.getElementById("profileFullName").textContent =
+            `${user.firstName || ""} ${user.lastName || ""}`;
+
+        document.getElementById("profileUsername").textContent =
+            user.username || "-";
+
+        document.getElementById("profileEmail").textContent =
+            user.email || "-";
+    });
+    </script>
+
+</body>
+</html>
