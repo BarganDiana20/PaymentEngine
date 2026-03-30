@@ -15,7 +15,7 @@ Mobile-style web interface built with HTML, CSS, and JavaScript that allows user
         - 🔐 Authentication: user registration and login using username or e-mail address and password
         - 👤 User profile: full name, username, email;
         - 📊 Dashboard: displays the primary wallet balance and quick access to key actions such as new payments and wallet management;
-        - <i class="fa-brands fa-amazon-pay"></i> 💸 New Payment: initiate payments from user wallets by entering the recipient’s wallet code, amount, and description, with the option to schedule the payment for a future date and time;
+        - 💸 New Payment: initiate payments from user wallets by entering the recipient’s wallet code, amount, and payment description, with the option to schedule the payment for a future date and time;
         - 💼 Wallets: create wallets, view all user wallets, access wallets details (name, code, current balance, status), and recent or transaction history (credit and debit);
         - 🚪<i class="fa-solid fa-arrow-right-from-bracket"></i> Logout: securely ends the session and redirects to the login page
     - **Admin interface:**
