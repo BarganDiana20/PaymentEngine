@@ -98,8 +98,7 @@ Content-Type: application/json
 }
 ```
 
-After sending this request, the user is created in the database with the name **payment_engine** in MySQL. 
-The backend ensures that any account registered through the UI is automatically assigned the USER role, preventing unauthorized privilege escalation and keeping administrative access strictly controlled.
+When a new user registers via the UI, the backend creates the user in the MySQL database **(payment_engine)** and automatically assigns the USER role. This prevents unauthorized access to administrative functions.
 
 ---
 #### ⚙️ Configuration
